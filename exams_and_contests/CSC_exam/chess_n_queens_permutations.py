@@ -24,11 +24,10 @@ def next_bigger(n):
                     return n
 
 
-def permutations(permutation):
+def permutations(N):
     """generator of all permutations of "permutation" numbers"""
-    if isinstance(permutation, int):
-        s = [d for d in range(N)]
-        yield s
+    s = list(range(N))
+    yield s
     while True:
         s = next_bigger(s)
         if s == -1:

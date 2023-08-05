@@ -21,6 +21,7 @@ def binary_search_right(arr, x):
             high = mid
     return low
 
+
 def binary_search(arr, x):
     for i in range(1, len(arr)):
         assert (arr[i-1] <= arr[i]), "Array is not sorted!"
@@ -29,6 +30,7 @@ def binary_search(arr, x):
     left = binary_search_left(arr, x)
     right = binary_search_right(arr, x)
     return left if left == right else (left, right)
+
 
 if __name__ == "__main__":
     array = [0, 0, 0, 2, 3, 4, 4, 4, 4, 5, 6, 77, 88, 100]

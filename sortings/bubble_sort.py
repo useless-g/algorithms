@@ -2,17 +2,17 @@ def bubble_sort(arr: list, descending: bool = False):
     if descending:
         for i in range(len(arr)):
             for j in range(len(arr) - 1 - i):
-                if a[j] < a[j+1]:
-                    tmp = a[j+1]
-                    a[j+1] = a[j]
-                    a[j] = tmp
+                if arr[j] < arr[j+1]:
+                    tmp = arr[j+1]
+                    arr[j+1] = arr[j]
+                    arr[j] = tmp
     else:  # ascending
         for i in range(len(arr)):
             for j in range(len(arr) - 1 - i):
-                if a[j] > a[j+1]:
-                    tmp = a[j+1]
-                    a[j+1] = a[j]
-                    a[j] = tmp
+                if arr[j] > arr[j+1]:
+                    tmp = arr[j+1]
+                    arr[j+1] = arr[j]
+                    arr[j] = tmp
 
  
 if __name__ == "__main__":

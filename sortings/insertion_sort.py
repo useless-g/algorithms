@@ -1,4 +1,4 @@
-def insert_sort(arr: list, descending: bool = False):
+def insertion_sort(arr: list, descending: bool = False):
     if descending:
         for j in range(1, len(arr)):
             key = arr[j]
@@ -20,7 +20,7 @@ def insert_sort(arr: list, descending: bool = False):
 if __name__ == "__main__":
     a = [6, 5, 4, 0, 3, 4, 3, 2, 1, 0]
     print(a)
-    insert_sort(a)
+    insertion_sort(a)
     print(a)
-    insert_sort(a, descending=True)
+    insertion_sort(a, descending=True)
     print(a)

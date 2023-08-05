@@ -3,10 +3,10 @@ from time import time
 
 def count_sort(arr: list, descending: bool = False):
     """
-    sorting works if we know domen of array elements, and it is small
+    sorting works if we know domain of array elements, and it is small
     for example: [0:9]
     """
-    F = [0 for i in range(10000000)]
+    F = [0 for _ in range(0, max(arr) + 1)]
     for element in arr:
         F[element] += 1
     res = []

@@ -1,4 +1,4 @@
-def choice_sort(arr: list, descending: bool = False):
+def selection_sort(arr: list, descending: bool = False):
     if descending:
         for i in range(len(arr) - 1):
             max_index = i
@@ -22,7 +22,7 @@ def choice_sort(arr: list, descending: bool = False):
 if __name__ == "__main__":
     a = [6, 5, 4, 0, 3, 4, 3, 2, 1, 0]
     print(a)
-    choice_sort(a)
+    selection_sort(a)
     print(a)
-    choice_sort(a, descending=True)
+    selection_sort(a, descending=True)
     print(a)
