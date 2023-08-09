@@ -11,11 +11,11 @@ def count_sort(arr: list, descending: bool = False):
         F[element] += 1
     res = []
     if descending:
-        for i in range(len(F)):
+        for i in range(len(F)-1, -1, -1):
             for j in range(F[i]):
                 res.append(i)
     else:  # ascending
-        for i in range(len(F)-1, -1, -1):
+        for i in range(len(F)):
             for j in range(F[i]):
                 res.append(i)
     return res
