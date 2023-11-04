@@ -1,10 +1,11 @@
+from random import randint
 from time import time
 
 
 def quick_sort(arr):
     if len(arr) < 2:
         return arr
-    pivot = arr[len(arr) // 2]
+    pivot = arr[randint(0, len(arr) - 1)]
     less = [i for i in arr if i < pivot]
     mid = [i for i in arr if i == pivot]
     greater = [i for i in arr if i > pivot]

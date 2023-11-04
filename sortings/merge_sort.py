@@ -2,7 +2,7 @@ def insertion_sort(arr: list, p, r):
     for j in range(p+1, r+1):
         key = arr[j]
         i = j - 1
-        while i >= 0 and arr[i] > key:
+        while i >= p and arr[i] > key:
             arr[i + 1] = arr[i]
             i -= 1
         arr[i + 1] = key
