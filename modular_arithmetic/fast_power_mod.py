@@ -1,20 +1,64 @@
-def power_mod(x: int, y: int, n: int):
-    arr = list(map(int, list(str(bin(y))[2:])))[::-1]
-    res = 1
-    for i in range(len(arr)):
-        if arr[i]:
-            c = x
-            for j in range(i):
-                c %= n
-                c **= 2
-            c %= n
-            res = (res * c) % n
-
-    return res
+from time import time
 
 
-print(power_mod(2, 3 ,5))
-print(power_mod(4, 12, 3))
-print(power_mod(11, 10, 300))
-print(power_mod(11, 100000, 49))
-print(power_mod(52345678, 102323230000000, 199898989884675898))
+def fast_pow_mod(a: int, n: int, m: int) -> int:
+    """
+    :param a: number
+    :param n: degree
+    :param m: modulo
+    :return: (a**n) % m
+    """
+    c = 1
+    while n > 1:
+        if n % 2 == 0:
+            a = (a ** 2) % m
+            n //= 2
+        else:
+            c = (c * a) % m
+            n -= 1
+    return c * a % m
+
+
+def fast_pow(a: int, n: int) -> int:
+    """
+    :param a: number
+    :param n: degree
+    :return: a**n
+    """
+    c = 1
+    while n > 1:
+        if n % 2 == 0:
+            a *= a
+            n //= 2
+        else:
+            c *= a
+            n -= 1
+    return c * a
+
+
+if __name__ == "__main__":
+    print("pow mod")
+    t = time()
+    print((11 ** 2878063) % 3472094802933740923740923742322323237)
+    print(time() - t)
+    print()
+
+    print("fast pow mod")
+    t = time()
+    print(fast_pow_mod(11, 2878063, 3472094802933740923740923742322323237))
+    print(time() - t)
+    print()
+
+    print("pow")
+    t = time()
+    print(11 ** 2878063)
+    print(time() - t)
+    print()
+
+    print("fast pow")
+    t = time()
+    print(fast_pow(11, 2878063))
+    print(time() - t)
+    print()
+
+
