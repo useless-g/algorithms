@@ -1,45 +1,11 @@
 from time import time
-
-
-def next_bigger(n):
-    N = len(n)
-    if N < 2:
-        return -1
-
-    flag = True
-    for i in range(1, N):
-        if n[i-1] < n[i]:
-            flag = False
-            break
-    if flag:
-        return -1
-
-    for k in range(N-2, -1, -1):
-        for j in range(N-1, k-1, -1):
-            for i in range(j, k-1, -1):
-                if n[j] > n[i - 1]:
-                    n.insert(i - 1, n[j])
-                    del n[j + 1]
-                    n = n[:i] + sorted(n[i:])
-                    return n
-
-
-def permutations(N):
-    """generator of all permutations of "permutation" numbers"""
-    s = list(range(N))
-    yield s
-    while True:
-        s = next_bigger(s)
-        if s == -1:
-            break
-        yield s
-
+from itertools import permutations
 
 for o in range(1, 10):
     t = time()
     N = o
 
-    permutation_generator = permutations(N)
+    permutation_generator = permutations(list(range(N)))
     k = 0
     for perm in permutation_generator:
         flag = True
@@ -89,13 +55,12 @@ for o in range(1, 10):
             k += 1
     print(o, k, time() - t)
 
-
-# 1 1 0.000988006591796875
+# 1 1 0.0
 # 2 0 0.0
 # 3 0 0.0
-# 4 2 0.0
-# 5 10 0.0010123252868652344
-# 6 4 0.0059893131256103516
-# 7 40 0.04198908805847168
-# 8 92 0.34600210189819336
-# 9 352 3.6787896156311035
+# 4 2 0.0010001659393310547
+# 5 10 0.0
+# 6 4 0.004004240036010742
+# 7 40 0.031015396118164062
+# 8 92 0.30499267578125
+# 9 352 2.6540067195892334

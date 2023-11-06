@@ -68,9 +68,19 @@ def rec(field, str_, count):
             rec(place_queen(field, str_, i), str_ + 1, count)
 
 
-for o in range(1, 11):
+for o in range(1, 10):
     t = time()
     counter = 0
     N = o
     work()
     print(o, counter, time() - t)
+
+# 1 1 0.0
+# 2 0 0.0
+# 3 0 0.0
+# 4 2 0.0
+# 5 10 0.00099945068359375
+# 6 4 0.004999876022338867
+# 7 40 0.01900482177734375
+# 8 92 0.07999992370605469
+# 9 352 0.38399434089660645
