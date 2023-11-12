@@ -17,17 +17,18 @@ import math
 from time import time
 
 
-def gen_permutations(N : int, M: int = None, prefix=None):
+def gen_permutations_recursive(N: int, M: int=None, prefix=None):
     M = N if M is None else M
     prefix = prefix or []
     if M == 0:
-        print(''.join(list(map(str, prefix))))
+        print(''.join(map(str, prefix)))
         return
+
     for number in range(1, N + 1):
         if number in prefix:
             continue
         prefix.append(number)
-        gen_permutations(N, M-1, prefix)
+        gen_permutations_recursive(N, M-1, prefix)
         prefix.pop()
 
 
@@ -53,18 +54,19 @@ def next_bigger(n):
                     del n[j + 1]
                     n = n[:i] + sorted(n[i:])
                     # return int(''.join(n))
-                    print(''.join(n))
-                    return ''.join(n)
+                    perm = ''.join(n)
+                    print(perm)
+                    return perm
 
 
 if __name__ == "__main__":
     t = time()
 
-    a = math.factorial(9) - 1
     s = "123456789"
+    a = math.factorial(9) - 1
     for _ in range(a):
         s = next_bigger(s)
 
-    # gen_permutations(9)
+    # gen_permutations_recursive(9)
+
     print(time() - t)
-    # print(s)
