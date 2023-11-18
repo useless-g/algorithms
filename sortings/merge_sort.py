@@ -44,7 +44,7 @@ def merge_sort(a: list):
 
 
 def kmerge_sort(a, p, r):
-    if r < p + 4:
+    if r < p + 16:
         insertion_sort(a, p, r)
     else:
     # if p < r:
