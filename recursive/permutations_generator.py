@@ -21,7 +21,7 @@ def gen_permutations_recursive(N: int, M: int=None, prefix=None):
     M = N if M is None else M
     prefix = prefix or []
     if M == 0:
-        print(''.join(map(str, prefix)))
+        # print(''.join(map(str, prefix)))
         return
 
     for number in range(1, N + 1):
@@ -55,18 +55,18 @@ def next_bigger(n):
                     n = n[:i] + sorted(n[i:])
                     # return int(''.join(n))
                     perm = ''.join(n)
-                    print(perm)
+                    # print(perm)
                     return perm
 
 
 if __name__ == "__main__":
     t = time()
 
-    s = "123456789"
-    a = math.factorial(9) - 1
+    s = "0123456789"
+    a = math.factorial(10) - 1
     for _ in range(a):
         s = next_bigger(s)
 
-    # gen_permutations_recursive(9)
+    # gen_permutations_recursive(10)
 
     print(time() - t)
