@@ -1,6 +1,5 @@
 from itertools import permutations
 
-
 N = int(input())
 minE = float("inf")
 perms = permutations([i for i in range(N-1)])
