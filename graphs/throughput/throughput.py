@@ -8,27 +8,38 @@ for _ in range(K):
     graph[a].add((b, t, w))
     graph[b].add((a, t, w))
 
+low_weight = 3_000_000 - 1
+high_weight = 3_000_000 + 10**9 + 1
+
 S = 1
 F = N
 
-visited = [True] + [False] * N
-weight = [-1] * (N + 1)
-weight[S] = 10**7 + 3_000_000
-time = [float("inf")] * (N + 1)
-time[S] = 0
-for i in range(1, N+1):
-    index = 0
-    max_weight = -1
-    for j in range(1, N+1):
-        if not visited[j] and weight[j] > max_weight:
-            index = j
-            max_weight = weight[j]
+while high_weight - low_weight > 1:
+    visited = [True] + [False] * N
+    time = [float("inf")] * (N + 1)
+    time[S] = 0
+    weight = (high_weight + low_weight) // 2
+    for i in range(1, N+1):
+        index = 0
+        min_time = float("inf")
+        for j in range(1, N+1):
+            if not visited[j] and time[j] < min_time:
+                index = j
+                min_time = time[j]
+        if index == 0:
+            break
 
-    for neighbour in graph[index]:
-        if (min(max_weight, neighbour[2]) > weight[neighbour[0]]) and (neighbour[1] + time[index] < 1440):
-            weight[neighbour[0]] = min(max_weight, neighbour[2])
-            time[neighbour[0]] = neighbour[1] + time[index]
+        for neighbour in graph[index]:
+            if (min_time + neighbour[1] < time[neighbour[0]]) and (weight <= neighbour[2]):
+                time[neighbour[0]] = neighbour[1] + min_time
 
-    visited[index] = True
+        visited[index] = True
+    if time[F] <= 1440:
+        low_weight = weight
+    else:
+        high_weight = weight
 
-print((weight[F] - 3_000_000) // 100)
+weight = (weight - 3_000_000) // 100
+print(weight if weight > 0 else 0)
+
+
