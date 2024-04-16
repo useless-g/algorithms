@@ -8,10 +8,9 @@ rounds = 1
 
 if soldiers > new_enemies:
     while True:
-        enemies += new_enemies
-        soldiers -= enemies // 2
-        enemies -= enemies // 2
-        kazarma_hp -= soldiers
+        s = soldiers
+        s -= new_enemies
+        kazarma_hp -= s
         rounds += 1
         if kazarma_hp <= 0:
             break
