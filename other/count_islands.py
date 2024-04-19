@@ -6,10 +6,8 @@ class Solution:
         # когда закончили ище дальше непомеченную землю и повторяем
         # возвращаем island_number
         island_number = 0
-        row = len(grid)
-        col = len(grid[0])
-        for i in range(row):
-            for j in range(col):
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
                 if grid[i][j] == "1":  # unmarked ground
                     neighbors = [(i, j)]
                     while neighbors:
@@ -19,9 +17,9 @@ class Solution:
 
                         if (ii != 0) and (grid[ii - 1][jj] == "1"):  # unmarked ground up
                             neighbors.append((ii - 1, jj))
-                        if (ii != row - 1) and (grid[ii + 1][jj] == "1"):  # unmarked ground down
+                        if (ii != len(grid) - 1) and (grid[ii + 1][jj] == "1"):  # unmarked ground down
                             neighbors.append((ii + 1, jj))
-                        if (jj != col - 1) and (grid[ii][jj + 1] == "1"):  # unmarked ground right
+                        if (jj != len(grid[0]) - 1) and (grid[ii][jj + 1] == "1"):  # unmarked ground right
                             neighbors.append((ii, jj + 1))
                         if (jj != 0) and (grid[ii][jj - 1] == "1"):  # unmarked ground left
                             neighbors.append((ii, jj - 1))
