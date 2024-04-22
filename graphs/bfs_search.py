@@ -18,3 +18,21 @@ class Solution:
                 if v not in watched:
                     queue.append(v)
         return result
+
+
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
+if (lock[0], lock[1], lock[2], lock[3]) not in watched:
+    queue.append(lock[0], lock[1], lock[2], lock[3])
