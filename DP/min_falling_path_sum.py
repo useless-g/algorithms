@@ -2,16 +2,13 @@
 class Solution:
     def minFallingPathSum(self, grid):
         n = len(grid)
-        dp = [[0 for i in range(n)] for j in range(n)]
-        dp[0] = grid[0]
-        for i in range(1, n):
+        dp = grid.pop()
+        for i in range(n-1):
+            min1 = dp.index(min(dp))
+            min2 = dp.index(min(dp[:min1] + dp[min1 + 1:]))
             for j in range(n):
-                m = float("inf")
-                for k in range(n):
-                    if k == j:
-                        continue
-                    m = dp[i-1][k] if dp[i-1][k] <= m else m
-                dp[i][j] = m + grid[i][j]
-        return min(dp[-1])
+                grid[-1][j] += dp[min1] if j != min1 else dp[min2]
+            dp = grid.pop()
+        return min(dp)
 
 print(Solution().minFallingPathSum([[0]]))
